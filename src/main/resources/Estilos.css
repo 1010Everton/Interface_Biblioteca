@@ -1,0 +1,42 @@
+/* Estilo para o layout geral */
+.root {
+    -fx-background-color: #f8f4e3; /* Cor de fundo suave, semelhante ao papel */
+    -fx-padding: 20; /* Espaçamento interno */
+}
+
+/* Estilo para Labels */
+.label {
+    -fx-text-fill: #4a4a4a; /* Cor do texto em cinza escuro */
+    -fx-font-size: 16px; /* Tamanho da fonte */
+    -fx-font-family: "Georgia", serif; /* Fonte com estilo clássico */
+}
+
+
+/* Estilo para TextFields */
+.text-field {
+    -fx-background-color: #ffffff; /* Fundo branco limpo */
+    -fx-border-color: #b5a680; /* Borda sutil em tom marrom claro */
+    -fx-border-radius: 5; /* Bordas arredondadas */
+    -fx-padding: 5; /* Espaçamento interno */
+}
+
+/* Estilo para Botões */
+.button {
+    -fx-background-color: #b5a680; /* Fundo em tom marrom claro */
+    -fx-text-fill: #ffffff; /* Texto branco */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-font-family: "Verdana", sans-serif; /* Fonte limpa */
+    -fx-padding: 8 16; /* Espaçamento interno nos botões */
+    -fx-border-radius: 5; /* Bordas arredondadas */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 1); /* Sombra suave */
+}
+
+/* Estilo para Hover no Botão */
+.button:hover {
+    -fx-background-color: #a68f5c; /* Cor levemente mais escura ao passar o mouse */
+}
+
+/* Estilo para VBox */
+.vbox {
+    -fx-spacing: 10; /* Espaçamento entre elementos */
+}
