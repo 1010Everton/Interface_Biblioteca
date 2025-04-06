@@ -9,5 +9,8 @@
         <module name="Interface_Bliblioteca" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Sistema_De_Gerenciamento_De_Blibioteca_Digital" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
