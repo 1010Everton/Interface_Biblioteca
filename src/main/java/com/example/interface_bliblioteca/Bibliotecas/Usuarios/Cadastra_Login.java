@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
-import org.example.Bibliotecas.Usuarios.Usuario;
+
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -41,14 +41,14 @@ public class Cadastra_Login {
                     em.getTransaction().begin();
 
                     // Consulta personalizada para verificar se o login já existe
-                    TypedQuery<org.example.Bibliotecas.Usuarios.Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.login = :login", org.example.Bibliotecas.Usuarios.Usuario.class);
+                    TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.login = :login", Usuario.class);
                     query.setParameter("login", login);
-                    org.example.Bibliotecas.Usuarios.Usuario usuarioExistente = query.getResultStream().findFirst().orElse(null);
+                    Usuario usuarioExistente = query.getResultStream().findFirst().orElse(null);
 
                     if (usuarioExistente != null) {
                         System.out.println("Usuário já cadastrado!");
                     } else {
-                        org.example.Bibliotecas.Usuarios.Usuario usuario = new Usuario();
+                        Usuario usuario = new Usuario();
                         usuario.setLogin(login);
                         usuario.setSenha(senha);
                         usuario.setCpf(cpf);

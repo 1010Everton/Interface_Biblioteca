@@ -1,5 +1,6 @@
 package com.example.interface_bliblioteca;
 
+import com.example.interface_bliblioteca.Bibliotecas.Campo_de_login.Faz_login;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,13 +12,16 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        Faz_login login = new Faz_login();
         Label Login = new Label("Login");
         TextField TEXTO = new TextField();
         Label Senha = new Label("senha");
         TextField TEXTO2 = new TextField();
+        String fazlogin = TEXTO.getText();
+        String Senhalogin = TEXTO2.getText();
 
         Button Botao_confirma = new Button("confirmar");
-
+        Botao_confirma.setOnAction(actionEvent -> {login.Login(fazlogin,Senhalogin);});
 
         VBox box = new VBox();
         box.setSpacing(10);

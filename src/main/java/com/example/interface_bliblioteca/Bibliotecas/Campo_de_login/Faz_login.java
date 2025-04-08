@@ -1,23 +1,20 @@
 package com.example.interface_bliblioteca.Bibliotecas.Campo_de_login;
 
+import com.example.interface_bliblioteca.Bibliotecas.Usuarios.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
-import org.example.Bibliotecas.Usuarios.Usuario;
+
+
 import java.util.List;
-
-
 import java.util.Scanner;
 
 public class Faz_login {
     Scanner scan = new Scanner(System.in);
 
-    public void Login() {
-        System.out.print("Digite seu login: ");
-        String login = scan.nextLine();
-        System.out.print("Digite sua senha: ");
-        String senha = scan.nextLine();
+
+    public void Login(String login, String senha) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("produtos");
         EntityManager em = emf.createEntityManager();

@@ -3,7 +3,7 @@ package com.example.interface_bliblioteca.Bibliotecas.Livros;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.example.Bibliotecas.Livros.Livros;
+
 
 import java.util.Scanner;
 
@@ -18,13 +18,13 @@ public class Cadastra_livro {
     String resumo = scan.nextLine();
 
 
-    org.example.Bibliotecas.Livros.Livros livro = new Livros(nome,autor,resumo);
+
     EntityManagerFactory em = Persistence.createEntityManagerFactory("produtos");
     EntityManager emf = em.createEntityManager();
 
 
         emf.getTransaction().begin();
-        emf.persist(livro);
+
         emf.getTransaction().commit();
         emf.close();
         em.close();
