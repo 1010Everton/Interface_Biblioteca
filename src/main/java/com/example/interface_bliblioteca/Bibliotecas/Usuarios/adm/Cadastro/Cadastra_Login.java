@@ -1,5 +1,6 @@
-package com.example.interface_bliblioteca.Bibliotecas.Usuarios;
+package com.example.interface_bliblioteca.Bibliotecas.Usuarios.adm.Cadastro;
 
+import com.example.interface_bliblioteca.Bibliotecas.Usuarios.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

@@ -35,7 +35,6 @@ public class Usuario {
     public void setData_nascimento(LocalDate data_nascimento) {
         Data_nascimento = data_nascimento;
     }
-
     public boolean isAdm() {
         return adm;
     }

@@ -12,6 +12,16 @@ public class Login {
     private String login;
     @Column(name = "senha",nullable = false)
     private String senha;
+    @Column(name = "Adm",nullable = false)
+    private boolean Adm;
+
+    public boolean getAdm() {
+        return Adm;
+    }
+
+    public void setAdm(boolean adm) {
+        Adm = adm;
+    }
 
     public String getLogin() {
         return login;

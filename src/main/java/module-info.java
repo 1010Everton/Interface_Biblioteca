@@ -10,4 +10,5 @@ module Interface.Bliblioteca {
     opens com.example.interface_bliblioteca.Bibliotecas.Usuarios to org.hibernate.orm.core;
     opens com.example.interface_bliblioteca.Bibliotecas.Usuarios.adm to org.hibernate.orm.core;
     opens com.example.interface_bliblioteca.Bibliotecas.Campo_de_login to org.hibernate.orm.core;
+    opens com.example.interface_bliblioteca.Bibliotecas.Usuarios.adm.Cadastro to org.hibernate.orm.core;
 }
