@@ -8,6 +8,7 @@ public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String login;
     private String senha;
 
