@@ -13,6 +13,8 @@ public class Cadastro_entidade {
     private String senha;
     @Column(name = "senha",nullable = false)
     private String login;
+    @Column(name = "data",nullable = false)
+    private Date_nascimento data;
     @Column(name = "cpf",nullable = false)
     private int cpf;
     @Column(name = "adm",nullable = false)
@@ -20,6 +22,14 @@ public class Cadastro_entidade {
 
     public String getSenha() {
         return senha;
+    }
+
+    public Date_nascimento getData() {
+        return data;
+    }
+
+    public void setData(Date_nascimento data) {
+        this.data = data;
     }
 
     public void setSenha(String senha) {

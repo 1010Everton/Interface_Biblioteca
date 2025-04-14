@@ -24,10 +24,9 @@ public class Cadastra_Login {
             String confirmasenha = scan.nextLine();
             System.out.print("Digite seu cpf : ");
             String cpf = scan.nextLine();
-            System.out.print("Digite sua data de nascimento (formato yyyy-MM-dd): ");
+            System.out.print("Digite sua data de nascimento: ");
             String dataInput = scan.nextLine();
 
-            LocalDate dataNascimento;
 
             if (!Objects.equals(senha, confirmasenha)) {
                 System.out.print("as suas senhas são diferentes");

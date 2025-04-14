@@ -21,7 +21,7 @@ public class Faz_login {
 
         try {
             TypedQuery<Usuario> busca = em.createQuery(
-                    "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha", Usuario.class
+                    "SELECT u FROM usuarios u WHERE u.login = :login AND u.senha = :senha", Usuario.class
             );
             busca.setParameter("login", login);
             busca.setParameter("senha", senha);
