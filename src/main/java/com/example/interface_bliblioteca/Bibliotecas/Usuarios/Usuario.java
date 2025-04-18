@@ -19,6 +19,9 @@ public class Usuario {
     private String cpf;
     @Column(name = "adm",nullable = false)
     private boolean adm ;
+    public void usuario(){
+
+    }
 
     public String getCpf() {
         return cpf;
@@ -57,5 +60,6 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+
     }
 }

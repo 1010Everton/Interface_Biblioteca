@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Faz_login {
-    Scanner scan = new Scanner(System.in);
 
 
     public void Login(String login, String senha) {

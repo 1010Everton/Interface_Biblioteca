@@ -2,19 +2,21 @@ package com.example.interface_bliblioteca.Bibliotecas.Usuarios.adm.Cadastro;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "usuarios")
 public class Cadastro_entidade {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "Login",nullable = false)
     private String senha;
     @Column(name = "senha",nullable = false)
     private String login;
-    @Column(name = "data",nullable = false)
-    private Date_nascimento data;
+    @Column(name = "date_nascimento")
+    private LocalDate dateNascimento;
     @Column(name = "cpf",nullable = false)
     private int cpf;
     @Column(name = "adm",nullable = false)
@@ -24,12 +26,13 @@ public class Cadastro_entidade {
         return senha;
     }
 
-    public Date_nascimento getData() {
-        return data;
+
+    public LocalDate getDateNascimento() {
+        return dateNascimento;
     }
 
-    public void setData(Date_nascimento data) {
-        this.data = data;
+    public void setDateNascimento(LocalDate dateNascimento) {
+        this.dateNascimento = dateNascimento;
     }
 
     public void setSenha(String senha) {
