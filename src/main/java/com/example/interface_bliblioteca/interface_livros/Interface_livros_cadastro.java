@@ -11,6 +11,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.stream.IntStream;
 
 public class Interface_livros_cadastro {
@@ -23,15 +26,14 @@ public class Interface_livros_cadastro {
         Label cpf = new Label("cpf");
         TextField TEXTO4 = new TextField();
 
+
         ComboBox<Integer> dayComboBox = new ComboBox<>();
         IntStream.rangeClosed(1, 31).forEach(dayComboBox.getItems()::add);
 
         // ComboBox para o mês
-        ComboBox<String> monthComboBox = new ComboBox<>();
-        monthComboBox.getItems().addAll(
-                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-        );
+        ComboBox<Integer> monthComboBox = new ComboBox<>();
+        IntStream.rangeClosed(1, 12).forEach(monthComboBox.getItems()::add);
+
 
         // ComboBox para o ano
         ComboBox<Integer> yearComboBox = new ComboBox<>();
@@ -41,23 +43,39 @@ public class Interface_livros_cadastro {
         HBox hbox = new HBox(10, dayComboBox, monthComboBox, yearComboBox);
 
         Label nascimento = new Label("nascimento");
-        String cpfus = TEXTO4.getText();
-        String fazlogin = TEXTO.getText();
-        String Senhalogin = TEXTO2.getText();
         Button Botao_confirma = new Button("confirmar");
+        Botao_confirma.setOnAction(actionEvent -> {
+            String fazlogin = TEXTO.getText();
+            String Senhalogin = TEXTO2.getText();
+            String cpfus = TEXTO4.getText();
 
-        Integer dia = dayComboBox.getValue();
-        String mes = monthComboBox.getValue();
-        Integer ano = yearComboBox.getValue();
-        String data = dia+"/"+mes+"/"+ano;
+            Integer dia = dayComboBox.getValue();
+            Integer mes = monthComboBox.getValue();
+            Integer ano = yearComboBox.getValue();
 
-        Botao_confirma.setOnAction(actionEvent -> {Cadastro_usuario login = new Cadastro_usuario();
-        login.cadastrarUsuario(fazlogin,Senhalogin,cpfus,data);
+            if (fazlogin == null || fazlogin.isEmpty() || Senhalogin == null || Senhalogin.isEmpty() || cpfus == null || cpfus.isEmpty()) {
+                System.out.println("Erro: Preencha todos os campos obrigatórios.");
+                return;
+            }
+
+
+            if (dia != null && mes != null && ano != null) {
+                try {
+                    String formattedDate = String.format("%02d/%02d/%04d", dia, mes, ano);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                    LocalDate dataNascimento = LocalDate.parse(formattedDate, formatter);
+
+                    Cadastro_usuario login = new Cadastro_usuario();
+                    login.cadastrarUsuario(fazlogin, Senhalogin, cpfus, dataNascimento);
+                    System.out.println("Usuário cadastrado com sucesso!");
+                } catch (DateTimeParseException e) {
+                    System.out.println("Erro ao parsear a data: " + e.getMessage());
+                }
+            } else {
+                System.out.println("Erro: Preencha todos os campos de data.");
+            }
         });
-        String dataNascimento = "";
-        if (dia != null && mes != null && ano != null) {
-            dataNascimento = dia + " de " + mes + " de " + ano;
-        }
+
 
 
         VBox box = new VBox();

@@ -51,7 +51,7 @@ public class Cadastra_Login {
                         Usuario usuario = new Usuario();
                         usuario.setLogin(login);
                         usuario.setSenha(senha);
-                        usuario.setCpf(cpf);
+                        //usuario.setCpf(cpf);
                         usuario.setData_nascimento(LocalDate.parse(dataInput));
                         usuario.setAdm(false); // Define valor padrão para o campo "adm"
 

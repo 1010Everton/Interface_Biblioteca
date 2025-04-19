@@ -12,7 +12,7 @@ public class Cadastro_usuario {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("produtos");
     EntityManager em = emf.createEntityManager();
 
-    public void cadastrarUsuario(String login, String senha, String cpf, String data) {
+    public void cadastrarUsuario(String login, String senha, String cpf, LocalDate data) {
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -24,7 +24,7 @@ public class Cadastro_usuario {
             usuario.setSenha(senha);
             usuario.setCpf(cpf);
             usuario.setLogin(login);
-            usuario.setData_nascimento(LocalDate.parse(data));
+            usuario.setData_nascimento(data);
 
             // Persiste a entidade
             em.persist(usuario);
