@@ -21,16 +21,32 @@ public class Interface_livros_login {
         String Senhalogin = TEXTO2.getText();
 
         Button Botao_confirma = new Button("confirmar");
+        Button Botão_cadastro = new Button("cadastro");
         Botao_confirma.setOnAction(actionEvent -> {login.Login(fazlogin,Senhalogin);});
+        Interface_livros_cadastro cadastro = new Interface_livros_cadastro();
+
+        Botão_cadastro.setOnAction(e->{
+            try{
+                cadastro.Cadastro(stage);
+            }
+            catch (Exception x){
+                System.out.print(x);
+            }
+
+        });
+
+
 
         VBox box = new VBox();
         box.setSpacing(10);
-        box.getChildren().add(Login);
-        box.getChildren().add(TEXTO);
-        box.getChildren().add(Senha);
-        box.getChildren().add(TEXTO2);
-        box.getChildren().add(Botao_confirma);
-
+        box.getChildren().addAll(
+                Login,
+                TEXTO,
+                Senha,
+                TEXTO2,
+                Botao_confirma,
+                Botão_cadastro
+        );
         Scene cena = new Scene(box,400,400);
         cena.getStylesheets().add("Estilos.css");
         stage.setScene(cena);

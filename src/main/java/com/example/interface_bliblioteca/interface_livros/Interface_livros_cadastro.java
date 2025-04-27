@@ -22,23 +22,32 @@ public class Interface_livros_cadastro {
         TextField TEXTO = new TextField();
         Label Senha = new Label("senha");
         TextField TEXTO2 = new TextField();
-
         Label cpf = new Label("cpf");
         TextField TEXTO4 = new TextField();
+
+        Button botao_voltar = new Button("volta");
+        Interface_livros_login volta_login = new Interface_livros_login();
+
+
+        botao_voltar.setOnAction(e->{
+            try{
+                volta_login.Cadastro(stage);
+            }
+            catch (Exception x){
+                System.out.print(x);
+            }
+        });
 
 
         ComboBox<Integer> dayComboBox = new ComboBox<>();
         IntStream.rangeClosed(1, 31).forEach(dayComboBox.getItems()::add);
-
         // ComboBox para o mês
         ComboBox<Integer> monthComboBox = new ComboBox<>();
         IntStream.rangeClosed(1, 12).forEach(monthComboBox.getItems()::add);
 
-
         // ComboBox para o ano
         ComboBox<Integer> yearComboBox = new ComboBox<>();
         IntStream.rangeClosed(1900, 2100).forEach(yearComboBox.getItems()::add);
-
         // Layout horizontal
         HBox hbox = new HBox(10, dayComboBox, monthComboBox, yearComboBox);
 
@@ -85,7 +94,8 @@ public class Interface_livros_cadastro {
                 Senha, TEXTO2,
                 nascimento,hbox,
                 cpf, TEXTO4,
-                Botao_confirma
+                Botao_confirma,
+                botao_voltar
         );
 
         Scene cena = new Scene(box,400,400);

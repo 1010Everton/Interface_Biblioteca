@@ -8,7 +8,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Interface_livros_cadastro Login = new Interface_livros_cadastro();
+        Interface_livros_login Login = new Interface_livros_login();
         Login.Cadastro(primaryStage);
     }
 
