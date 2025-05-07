@@ -19,7 +19,7 @@ public class Usuario {
     private String cpf;
     @Column(name = "adm",nullable = false)
     private boolean adm ;
-    public void usuario(){
+    public Usuario(){
 
     }
 

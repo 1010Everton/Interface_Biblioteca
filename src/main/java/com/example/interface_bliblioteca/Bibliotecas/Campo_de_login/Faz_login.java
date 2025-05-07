@@ -13,14 +13,15 @@ import java.util.Scanner;
 public class Faz_login {
 
 
-    public void Login(String login, String senha) {
+    public boolean Login(String login, String senha) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("produtos");
         EntityManager em = emf.createEntityManager();
+        boolean sucesso = false;
 
         try {
             TypedQuery<Usuario> busca = em.createQuery(
-                    "SELECT u FROM usuarios u WHERE u.login = :login AND u.senha = :senha", Usuario.class
+                    "SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha", Usuario.class
             );
             busca.setParameter("login", login);
             busca.setParameter("senha", senha);
@@ -30,12 +31,10 @@ public class Faz_login {
             if (!resultados.isEmpty()) {
                 Usuario usuarioDoBanco = resultados.get(0); // Pegando o primeiro registro
                 if (login.equals(usuarioDoBanco.getLogin()) && senha.equals(usuarioDoBanco.getSenha())) {
-                    System.out.println("Login realizado com sucesso!");
+                    sucesso=true;
                 } else {
-                    System.out.println("Login ou senha incorretos.");
+                    sucesso=false;
                 }
-            } else {
-                System.out.println("Login ou senha incorretos.");
             }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro: " + e.getMessage());
@@ -43,5 +42,5 @@ public class Faz_login {
             em.close();
             emf.close();
         }
-    }
+    return sucesso; }
 }

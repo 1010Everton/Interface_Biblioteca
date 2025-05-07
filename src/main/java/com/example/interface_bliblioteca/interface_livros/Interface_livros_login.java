@@ -17,26 +17,39 @@ public class Interface_livros_login {
         TextField TEXTO = new TextField();
         Label Senha = new Label("senha");
         TextField TEXTO2 = new TextField();
-        String fazlogin = TEXTO.getText();
-        String Senhalogin = TEXTO2.getText();
+
 
         Button Botao_confirma = new Button("confirmar");
         Button Botão_cadastro = new Button("cadastro");
-        Botao_confirma.setOnAction(actionEvent -> {login.Login(fazlogin,Senhalogin);});
-        Interface_livros_cadastro cadastro = new Interface_livros_cadastro();
+        Botao_confirma.setOnAction(actionEvent -> {
+            String fazlogin = TEXTO.getText();
+            String Senhalogin = TEXTO2.getText();
 
-        Botão_cadastro.setOnAction(e->{
+            boolean acesso = login.Login(fazlogin,Senhalogin);
+
             try{
-                cadastro.Cadastro(stage);
+                if(acesso=true){
+                    System.out.print("login realizado");
+                }
             }
-            catch (Exception x){
-                System.out.print(x);
+            catch (Exception e){
+                e.getStackTrace();
             }
 
         });
 
 
 
+        Botão_cadastro.setOnAction(e->{
+            try{
+                Interface_livros_cadastro cadastro = new Interface_livros_cadastro();
+                cadastro.Cadastro(stage);
+            }
+            catch (Exception x){
+                x.getStackTrace();
+            }
+
+        });
         VBox box = new VBox();
         box.setSpacing(10);
         box.getChildren().addAll(
